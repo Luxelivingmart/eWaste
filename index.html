@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="RecycleIT provides business IT, electrical and office equipment collection services, with data destruction and scheduled collections available.">
+  <meta name="description" content="Business IT recycling, computer disposal, data destruction and office equipment collections across Greater Manchester. Free collections available for qualifying quantities.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0f2a24">
-  <title>RecycleIT | Business IT, Electrical &amp; Office Equipment Collections</title>
+  <title>IT Recycling Manchester | Data Destruction &amp; Collections | RecycleIT</title>
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="RecycleIT | Business Equipment Collections">
-  <meta property="og:description" content="Business IT, electrical and office equipment collections, with data destruction and regular collection options available.">
+  <meta property="og:title" content="IT Recycling Manchester | RecycleIT">
+  <meta property="og:description" content="Business IT recycling, computer disposal, data destruction and office equipment collections across Greater Manchester.">
 
   <style>
     :root {
@@ -157,6 +157,10 @@
     .coverage-list { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.2rem 0 0; padding: 0; list-style: none; }
     .coverage-list li { padding: .48rem .7rem; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--navy); font-weight: 750; }
     .compliance-note { margin-top: 1.2rem; padding: 1rem; border: 1px solid var(--warning-border); border-radius: 12px; background: var(--warning); color: #604900; }
+    .faq-list { display: grid; gap: .85rem; max-width: 900px; }
+    .faq-list details { border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .faq-list summary { padding: 1.05rem 1.2rem; color: var(--navy-dark); font-weight: 850; cursor: pointer; }
+    .faq-list details p { margin: 0; padding: 0 1.2rem 1.15rem; color: var(--muted); }
 
     .cta { padding: 4.5rem 0; background: var(--green); color: #062516; text-align: center; }
     .cta h2 { color: #062516; }
@@ -196,6 +200,100 @@
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
     }
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "#organisation",
+      "name": "RecycleIT",
+      "description": "Business IT, electrical and office equipment collection enquiries across Greater Manchester and nearby areas.",
+      "areaServed": [
+        "Manchester",
+        "Salford",
+        "Trafford",
+        "Stockport",
+        "Bolton",
+        "Bury",
+        "Oldham",
+        "Rochdale",
+        "Warrington",
+        "Cheshire"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "#equipment-collection-service",
+      "name": "Business IT, electrical and office equipment collections",
+      "provider": {
+        "@id": "#organisation"
+      },
+      "areaServed": "Greater Manchester and nearby areas",
+      "serviceType": [
+        "IT recycling",
+        "Computer disposal",
+        "Electrical equipment recycling",
+        "Office equipment collection",
+        "Data destruction"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you offer free IT recycling collections?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free collections are available for qualifying quantities. Eligibility depends on the equipment type, quantity and collection location, so each request is reviewed before a collection is agreed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What IT and electrical equipment can you collect?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Collection enquiries can include laptops, desktop computers, workstations, servers, monitors, printers, scanners, networking equipment, docking stations, mobile phones, tablets, UPS equipment and other office electronics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you destroy SSDs and hard drives?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HDD and SSD destruction can be requested. Certificates of destruction may also be available where agreed as part of the service scope."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens to equipment after collection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Equipment is assessed for reuse, refurbishment or component recovery where practical. Items unsuitable for reuse are directed towards responsible recycling arrangements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide regular business collections?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Businesses and organisations can request one-off, weekly, monthly or quarterly collection arrangements, subject to suitability and availability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which areas do you cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Initial enquiries are welcomed from Manchester, Salford, Trafford, Stockport, Bolton, Bury, Oldham, Rochdale, Warrington and Cheshire. Larger collections outside these areas may also be considered."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -215,6 +313,7 @@
         <a href="#data-destruction">Data destruction</a>
         <a href="#areas">Areas covered</a>
         <a href="#about">About</a>
+        <a href="#faq">FAQs</a>
         <a class="nav-cta" href="#collection-form">Request a collection</a>
       </nav>
     </div>
@@ -224,8 +323,8 @@
     <section class="hero" id="top">
       <div class="container hero-content">
         <p class="eyebrow">Simple, responsible business collections</p>
-        <h1>Business IT, Electrical &amp; Office Equipment Collections</h1>
-        <p class="lead">Free collections available for qualifying quantities. Secure disposal, data destruction and regular collection services for businesses, schools and organisations.</p>
+        <h1>IT Recycling, Electrical Recycling &amp; Equipment Collection Services</h1>
+        <p class="lead">Secure collection and disposal of unwanted IT, electrical and office equipment across Greater Manchester. Free collections are available for qualifying quantities, with data destruction and regular collection options.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#collection-form">Request a collection</a>
           <a class="button button-secondary" href="#services">See what we collect</a>
@@ -351,7 +450,7 @@
       <div class="container">
         <p class="eyebrow">What we collect</p>
         <h2>Clear out unwanted business equipment</h2>
-        <p class="section-intro">From individual devices to office refreshes, RecycleIT is designed to make surplus equipment collection straightforward.</p>
+        <p class="section-intro">From individual computers to full office refreshes, RecycleIT is designed to make business IT recycling, computer disposal and surplus equipment collection straightforward.</p>
         <div class="card-grid">
           <article class="card">
             <div class="icon" aria-hidden="true">IT</div>
@@ -476,6 +575,41 @@
       </div>
     </section>
 
+
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <p class="eyebrow">Frequently asked questions</p>
+        <h2 id="faq-title">IT recycling and collection questions</h2>
+        <p class="section-intro">Helpful information for businesses, schools and organisations planning an equipment clearance or regular collection.</p>
+        <div class="faq-list">
+          <details>
+            <summary>Do you offer free IT recycling collections?</summary>
+            <p>Free collections are available for qualifying quantities. Eligibility depends on the equipment type, quantity and collection location, so each request is reviewed before a collection is agreed.</p>
+          </details>
+          <details>
+            <summary>What IT and electrical equipment can you collect?</summary>
+            <p>Collection enquiries can include laptops, desktop computers, workstations, servers, monitors, printers, scanners, networking equipment, docking stations, mobile phones, tablets, UPS equipment and other office electronics.</p>
+          </details>
+          <details>
+            <summary>Can you destroy SSDs and hard drives?</summary>
+            <p>HDD and SSD destruction can be requested. Certificates of destruction may also be available where agreed as part of the service scope.</p>
+          </details>
+          <details>
+            <summary>What happens to equipment after collection?</summary>
+            <p>Equipment is assessed for reuse, refurbishment or component recovery where practical. Items unsuitable for reuse are directed towards responsible recycling arrangements.</p>
+          </details>
+          <details>
+            <summary>Do you provide regular business collections?</summary>
+            <p>Yes. Businesses and organisations can request one-off, weekly, monthly or quarterly collection arrangements, subject to suitability and availability.</p>
+          </details>
+          <details>
+            <summary>Which areas do you cover?</summary>
+            <p>Initial enquiries are welcomed from Manchester, Salford, Trafford, Stockport, Bolton, Bury, Oldham, Rochdale, Warrington and Cheshire. Larger collections outside these areas may also be considered.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="cta" aria-labelledby="cta-title">
       <div class="container">
         <h2 id="cta-title">Got unwanted equipment taking up space?</h2>
@@ -498,7 +632,7 @@
         </div>
         <div>
           <h3>Information</h3>
-          <ul><li><a href="#process">What happens next</a></li><li><a href="#areas">Areas covered</a></li><li><a href="#about">About</a></li><li><a href="#collection-form">Contact</a></li></ul>
+          <ul><li><a href="#process">What happens next</a></li><li><a href="#areas">Areas covered</a></li><li><a href="#about">About</a></li><li><a href="#faq">FAQs</a></li><li><a href="#collection-form">Contact</a></li></ul>
         </div>
       </div>
       <div class="footer-bottom">
