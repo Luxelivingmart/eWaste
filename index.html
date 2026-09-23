@@ -1,1 +1,559 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RecycleIT provides business IT, electrical and office equipment collection services, with data destruction and scheduled collections available.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0f2a24">
+  <title>RecycleIT | Business IT, Electrical &amp; Office Equipment Collections</title>
 
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RecycleIT | Business Equipment Collections">
+  <meta property="og:description" content="Business IT, electrical and office equipment collections, with data destruction and regular collection options available.">
+
+  <style>
+    :root {
+      --navy: #10233d;
+      --navy-dark: #09182b;
+      --green: #24a866;
+      --green-dark: #16804b;
+      --green-pale: #eaf8f0;
+      --ink: #172033;
+      --muted: #5d6878;
+      --line: #dbe3e8;
+      --surface: #ffffff;
+      --surface-soft: #f5f8fa;
+      --warning: #fff7df;
+      --warning-border: #e6bf58;
+      --focus: #ffbf47;
+      --radius: 18px;
+      --shadow: 0 18px 45px rgba(9, 24, 43, 0.12);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--surface);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; }
+    img { max-width: 100%; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .container { width: min(calc(100% - 2rem), var(--max)); margin-inline: auto; }
+    .section { padding: 5rem 0; }
+    .section-soft { background: var(--surface-soft); }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      margin: 0 0 .8rem;
+      color: var(--green-dark);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { margin-top: 0; color: var(--navy-dark); line-height: 1.13; }
+    h1 { max-width: 790px; margin-bottom: 1.2rem; font-size: clamp(2.35rem, 5.2vw, 4.9rem); letter-spacing: -.045em; }
+    h2 { margin-bottom: 1rem; font-size: clamp(1.9rem, 3vw, 3rem); letter-spacing: -.03em; }
+    h3 { margin-bottom: .55rem; font-size: 1.22rem; }
+    p { margin-top: 0; }
+    .lead { max-width: 760px; color: #dbe6ef; font-size: clamp(1.08rem, 2vw, 1.28rem); }
+    .section-intro { max-width: 720px; margin-bottom: 2rem; color: var(--muted); font-size: 1.08rem; }
+    .skip-link {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 200;
+      padding: .75rem 1rem;
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--navy-dark);
+      transform: translateY(-160%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .announcement { padding: .65rem 1rem; background: var(--green); color: #062516; text-align: center; font-size: .92rem; font-weight: 800; }
+    .site-header { position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(219, 227, 232, .9); background: rgba(255, 255, 255, .96); backdrop-filter: blur(12px); }
+    .nav-wrap { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 1.4rem; }
+    .brand { display: inline-flex; align-items: center; gap: .68rem; color: var(--navy-dark); text-decoration: none; font-size: 1.25rem; font-weight: 900; letter-spacing: -.03em; }
+    .brand-mark { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 10px; background: var(--green); color: #062516; font-size: 1rem; }
+    .nav { display: flex; align-items: center; gap: 1.1rem; }
+    .nav a { color: #314156; text-decoration: none; font-size: .92rem; font-weight: 700; }
+    .nav a:hover { color: var(--green-dark); }
+    .nav .nav-cta { padding: .72rem 1rem; border-radius: 999px; background: var(--navy); color: #fff; }
+    .menu-button { display: none; min-width: 44px; min-height: 44px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--navy); font-weight: 800; }
+
+    .hero { position: relative; overflow: hidden; padding: 6rem 0 5.5rem; background: radial-gradient(circle at 83% 14%, rgba(36,168,102,.27), transparent 27%), linear-gradient(135deg, var(--navy-dark), var(--navy)); color: #fff; }
+    .hero::after { content: ""; position: absolute; inset: auto -12% -48% 52%; width: 650px; aspect-ratio: 1; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; box-shadow: 0 0 0 70px rgba(255,255,255,.025), 0 0 0 140px rgba(255,255,255,.02); }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h1 { color: #fff; }
+    .hero .eyebrow { color: #89e6b3; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin: 1.7rem 0 2rem; }
+    .button { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: .5rem; padding: .78rem 1.15rem; border: 1px solid transparent; border-radius: 999px; text-decoration: none; font-weight: 850; }
+    .button-primary { background: var(--green); color: #062516; box-shadow: 0 10px 26px rgba(36,168,102,.25); }
+    .button-primary:hover { background: #37bd78; }
+    .button-secondary { border-color: rgba(255,255,255,.35); background: rgba(255,255,255,.07); color: #fff; }
+    .button-dark { background: var(--navy); color: #fff; }
+    .hero-points { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; max-width: 970px; margin: 0; padding: 0; list-style: none; }
+    .hero-points li { padding: .9rem 1rem; border: 1px solid rgba(255,255,255,.14); border-radius: 13px; background: rgba(255,255,255,.06); font-size: .9rem; font-weight: 700; }
+    .hero-points li::before { content: "✓"; margin-right: .45rem; color: #89e6b3; font-weight: 900; }
+
+    .form-section { position: relative; z-index: 3; margin-top: -2.4rem; padding-bottom: 5rem; }
+    .form-shell { display: grid; grid-template-columns: .72fr 1.28fr; overflow: hidden; border: 1px solid var(--line); border-radius: 24px; background: #fff; box-shadow: var(--shadow); }
+    .form-aside { padding: clamp(1.7rem, 4vw, 3rem); background: var(--green-pale); }
+    .form-aside ul { margin: 1.4rem 0 0; padding: 0; list-style: none; }
+    .form-aside li { margin: .72rem 0; padding-left: 1.65rem; position: relative; }
+    .form-aside li::before { content: "✓"; position: absolute; left: 0; color: var(--green-dark); font-weight: 900; }
+    .form-area { padding: clamp(1.7rem, 4vw, 3rem); }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .field { display: flex; flex-direction: column; gap: .38rem; }
+    .field-full { grid-column: 1 / -1; }
+    label, legend { color: var(--navy-dark); font-weight: 800; }
+    .required { color: #a72525; }
+    input, select, textarea { width: 100%; min-height: 48px; padding: .72rem .82rem; border: 1px solid #b9c5cf; border-radius: 10px; background: #fff; color: var(--ink); }
+    textarea { min-height: 125px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { border-color: var(--green-dark); box-shadow: 0 0 0 3px rgba(36,168,102,.15); outline: 0; }
+    fieldset { margin: 0; padding: 0; border: 0; }
+    legend { margin-bottom: .65rem; }
+    .choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem .85rem; }
+    .choice { display: flex; align-items: flex-start; gap: .58rem; padding: .62rem .68rem; border: 1px solid var(--line); border-radius: 10px; color: #344357; font-weight: 650; }
+    .choice input { width: 18px; min-height: 18px; margin-top: .12rem; accent-color: var(--green-dark); }
+    .consent { display: flex; align-items: flex-start; gap: .65rem; color: var(--muted); font-size: .9rem; }
+    .consent input { width: 18px; min-height: 18px; margin-top: .2rem; accent-color: var(--green-dark); }
+    .form-note { margin: .75rem 0 0; color: var(--muted); font-size: .86rem; }
+    .form-status { display: none; margin-top: 1rem; padding: .9rem 1rem; border: 1px solid var(--warning-border); border-radius: 10px; background: var(--warning); color: #644b00; font-weight: 700; }
+    .form-status.show { display: block; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .card { padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; box-shadow: 0 9px 25px rgba(9,24,43,.055); }
+    .icon { width: 47px; height: 47px; display: grid; place-items: center; margin-bottom: 1rem; border-radius: 13px; background: var(--green-pale); color: var(--green-dark); font-size: 1.25rem; font-weight: 900; }
+    .card ul { margin: .8rem 0 0; padding-left: 1.15rem; color: var(--muted); }
+    .card p { color: var(--muted); }
+    .benefit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .benefit { padding: 1.3rem; border-left: 4px solid var(--green); border-radius: 0 12px 12px 0; background: #fff; }
+    .benefit p { margin-bottom: 0; color: var(--muted); }
+
+    .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; counter-reset: step; }
+    .step { position: relative; padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; counter-increment: step; }
+    .step::before { content: counter(step); width: 38px; height: 38px; display: grid; place-items: center; margin-bottom: 1rem; border-radius: 50%; background: var(--green); color: #062516; font-weight: 900; }
+    .step p { margin-bottom: 0; color: var(--muted); }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem, 6vw, 5rem); }
+    .panel { padding: clamp(1.6rem, 4vw, 2.6rem); border-radius: 22px; background: var(--navy); color: #fff; box-shadow: var(--shadow); }
+    .panel h2, .panel h3 { color: #fff; }
+    .panel p { color: #d6e0e7; }
+    .tick-list { padding: 0; list-style: none; }
+    .tick-list li { margin: .58rem 0; padding-left: 1.65rem; position: relative; }
+    .tick-list li::before { content: "✓"; position: absolute; left: 0; color: var(--green); font-weight: 900; }
+    .coverage-list { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.2rem 0 0; padding: 0; list-style: none; }
+    .coverage-list li { padding: .48rem .7rem; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--navy); font-weight: 750; }
+    .compliance-note { margin-top: 1.2rem; padding: 1rem; border: 1px solid var(--warning-border); border-radius: 12px; background: var(--warning); color: #604900; }
+
+    .cta { padding: 4.5rem 0; background: var(--green); color: #062516; text-align: center; }
+    .cta h2 { color: #062516; }
+    .cta p { max-width: 680px; margin-inline: auto; }
+    .footer { padding: 3rem 0 1.2rem; background: var(--navy-dark); color: #d0dae4; }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr .7fr .7fr; gap: 2rem; }
+    .footer .brand { color: #fff; }
+    .footer h3 { color: #fff; font-size: .98rem; }
+    .footer a { color: #d0dae4; text-decoration: none; }
+    .footer a:hover { color: #fff; }
+    .footer ul { margin: 0; padding: 0; list-style: none; }
+    .footer li { margin: .42rem 0; }
+    .footer-bottom { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.11); color: #9fb0c1; font-size: .85rem; }
+
+    @media (max-width: 940px) {
+      .menu-button { display: inline-flex; align-items: center; justify-content: center; }
+      .nav { position: fixed; inset: 75px 0 auto; display: none; flex-direction: column; align-items: stretch; padding: 1rem; border-bottom: 1px solid var(--line); background: #fff; box-shadow: 0 14px 30px rgba(9,24,43,.1); }
+      .nav.open { display: flex; }
+      .nav a { padding: .75rem; }
+      .nav .nav-cta { text-align: center; }
+      .hero-points { grid-template-columns: repeat(2, 1fr); }
+      .form-shell, .split { grid-template-columns: 1fr; }
+      .card-grid, .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 650px) {
+      .section { padding: 4rem 0; }
+      .hero { padding: 4.5rem 0 4.5rem; }
+      .hero-points, .form-grid, .choice-grid, .card-grid, .benefit-grid, .steps, .footer-grid { grid-template-columns: 1fr; }
+      .field-full { grid-column: auto; }
+      .form-section { margin-top: -1.5rem; }
+      .form-shell { border-radius: 18px; }
+      .hero-actions .button { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="announcement">Free collections available for qualifying quantities <span aria-hidden="true">•</span> Weekly and monthly collections available</div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="RecycleIT home">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span>RecycleIT</span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-navigation">Menu</button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation">
+        <a href="#services">What we collect</a>
+        <a href="#process">What happens next</a>
+        <a href="#data-destruction">Data destruction</a>
+        <a href="#areas">Areas covered</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#collection-form">Request a collection</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-content">
+        <p class="eyebrow">Simple, responsible business collections</p>
+        <h1>Business IT, Electrical &amp; Office Equipment Collections</h1>
+        <p class="lead">Free collections available for qualifying quantities. Secure disposal, data destruction and regular collection services for businesses, schools and organisations.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#collection-form">Request a collection</a>
+          <a class="button button-secondary" href="#services">See what we collect</a>
+        </div>
+        <ul class="hero-points" aria-label="Key services">
+          <li>IT equipment recycling</li>
+          <li>Data destruction services</li>
+          <li>Certificates of destruction</li>
+          <li>Scheduled collections</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="form-section" id="collection-form" aria-labelledby="form-title">
+      <div class="container">
+        <div class="form-shell">
+          <aside class="form-aside">
+            <p class="eyebrow">Collection enquiry</p>
+            <h2 id="form-title">Request a collection</h2>
+            <p>Tell us what you need collecting and we can review the quantity, equipment types and collection requirements.</p>
+            <ul>
+              <li>One-off, weekly, monthly or quarterly options</li>
+              <li>IT, electrical and office equipment</li>
+              <li>Optional HDD and SSD destruction</li>
+              <li>Free collection for qualifying loads</li>
+            </ul>
+          </aside>
+
+          <div class="form-area">
+            <form id="enquiry-form" action="#" method="post">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="business-name">Business or organisation <span class="required" aria-label="required">*</span></label>
+                  <input id="business-name" name="business_name" type="text" autocomplete="organization" required>
+                </div>
+                <div class="field">
+                  <label for="contact-name">Contact name <span class="required" aria-label="required">*</span></label>
+                  <input id="contact-name" name="contact_name" type="text" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label for="email">Email address <span class="required" aria-label="required">*</span></label>
+                  <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+                </div>
+                <div class="field">
+                  <label for="telephone">Telephone number</label>
+                  <input id="telephone" name="telephone" type="tel" autocomplete="tel" inputmode="tel">
+                </div>
+                <div class="field">
+                  <label for="postcode">Collection postcode <span class="required" aria-label="required">*</span></label>
+                  <input id="postcode" name="postcode" type="text" autocomplete="postal-code" required>
+                </div>
+                <div class="field">
+                  <label for="item-count">Approximate number of items <span class="required" aria-label="required">*</span></label>
+                  <select id="item-count" name="item_count" required>
+                    <option value="">Select a quantity</option>
+                    <option value="1-9">1 to 9</option>
+                    <option value="10-19">10 to 19</option>
+                    <option value="20-49">20 to 49</option>
+                    <option value="50-99">50 to 99</option>
+                    <option value="100+">100+</option>
+                  </select>
+                </div>
+
+                <fieldset class="field field-full">
+                  <legend>Equipment types <span class="required" aria-label="required">*</span></legend>
+                  <div class="choice-grid">
+                    <label class="choice"><input type="checkbox" name="equipment" value="Laptops"> Laptops</label>
+                    <label class="choice"><input type="checkbox" name="equipment" value="PCs and workstations"> PCs &amp; workstations</label>
+                    <label class="choice"><input type="checkbox" name="equipment" value="Servers"> Servers</label>
+                    <label class="choice"><input type="checkbox" name="equipment" value="Monitors"> Monitors</label>
+                    <label class="choice"><input type="checkbox" name="equipment" value="Printers"> Printers</label>
+                    <label class="choice"><input type="checkbox" name="equipment" value="Networking equipment"> Networking equipment</label>
+                    <label class="choice"><input type="checkbox" name="equipment" value="Mobiles and tablets"> Mobiles &amp; tablets</label>
+                    <label class="choice"><input type="checkbox" name="equipment" value="Electrical equipment"> Electrical equipment</label>
+                    <label class="choice"><input type="checkbox" name="equipment" value="Office equipment"> Office equipment</label>
+                    <label class="choice"><input type="checkbox" name="equipment" value="Other"> Other</label>
+                  </div>
+                </fieldset>
+
+                <div class="field">
+                  <label for="frequency">Collection frequency <span class="required" aria-label="required">*</span></label>
+                  <select id="frequency" name="frequency" required>
+                    <option value="">Select a frequency</option>
+                    <option value="One-off">One-off collection</option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Quarterly">Quarterly</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="destruction">Data destruction requirement</label>
+                  <select id="destruction" name="data_destruction">
+                    <option value="Not required">Not required</option>
+                    <option value="Data destruction">Data destruction required</option>
+                    <option value="Certificate">Data destruction and certificate required</option>
+                    <option value="Discuss">Not sure, please discuss with me</option>
+                  </select>
+                </div>
+
+                <div class="field field-full">
+                  <label for="notes">Equipment details and additional notes</label>
+                  <textarea id="notes" name="notes" placeholder="For example: 25 laptops, 12 monitors and 3 printers on the first floor, with lift access."></textarea>
+                </div>
+
+                <label class="consent field-full" for="consent">
+                  <input id="consent" name="consent" type="checkbox" required>
+                  <span>I agree that RecycleIT may use the details provided to respond to this enquiry. <span class="required" aria-label="required">*</span></span>
+                </label>
+
+                <div class="field-full">
+                  <button class="button button-dark" type="submit">Submit collection request</button>
+                  <p class="form-note">Free collection is subject to the equipment type, quantity and location. Submitting the form does not confirm a booking.</p>
+                  <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <p class="eyebrow">What we collect</p>
+        <h2>Clear out unwanted business equipment</h2>
+        <p class="section-intro">From individual devices to office refreshes, RecycleIT is designed to make surplus equipment collection straightforward.</p>
+        <div class="card-grid">
+          <article class="card">
+            <div class="icon" aria-hidden="true">IT</div>
+            <h3>IT equipment</h3>
+            <ul>
+              <li>Laptops and desktop PCs</li>
+              <li>Workstations and servers</li>
+              <li>Thin clients and docking stations</li>
+              <li>Networking equipment</li>
+              <li>Mobiles and tablets</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">E</div>
+            <h3>Electrical equipment</h3>
+            <ul>
+              <li>Printers and scanners</li>
+              <li>Projectors and displays</li>
+              <li>UPS equipment</li>
+              <li>Telecoms hardware</li>
+              <li>Commercial electronics</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">O</div>
+            <h3>Office equipment</h3>
+            <ul>
+              <li>Office electronics</li>
+              <li>Peripheral equipment</li>
+              <li>Surplus technology assets</li>
+              <li>Redundant business equipment</li>
+              <li>Other items by arrangement</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="benefits">
+      <div class="container">
+        <p class="eyebrow">Why RecycleIT</p>
+        <h2>A practical collection service built around your organisation</h2>
+        <div class="benefit-grid">
+          <article class="benefit"><h3>Free collections available</h3><p>Qualifying collections are assessed using the quantity, equipment type and location.</p></article>
+          <article class="benefit"><h3>Regular collection options</h3><p>Request weekly, monthly or quarterly collections where ongoing support is required.</p></article>
+          <article class="benefit"><h3>Reuse before recycling</h3><p>Where practical, equipment can be assessed for reuse, refurbishment or component recovery first.</p></article>
+          <article class="benefit"><h3>Reduce storage clutter</h3><p>Free up offices, stockrooms and storage areas occupied by redundant equipment.</p></article>
+          <article class="benefit"><h3>Data destruction options</h3><p>Request destruction of HDDs, SSDs and other data-bearing media.</p></article>
+          <article class="benefit"><h3>Clear documentation</h3><p>Certificates of destruction can be requested where proof of destruction is required.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2>From enquiry to responsible processing</h2>
+        <p class="section-intro">A clear four-step process keeps collection requirements simple.</p>
+        <div class="steps">
+          <article class="step"><h3>Submit your request</h3><p>Tell us what equipment you have, where it is and whether data destruction is required.</p></article>
+          <article class="step"><h3>Review and arrange</h3><p>The collection details are reviewed and a suitable arrangement can be agreed.</p></article>
+          <article class="step"><h3>Equipment collected</h3><p>Approved items are collected from the agreed business or organisation address.</p></article>
+          <article class="step"><h3>Assess and process</h3><p>Equipment is assessed for reuse, refurbishment, parts recovery or responsible recycling.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="data-destruction">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Data destruction</p>
+          <h2>HDD and SSD destruction with optional certificates</h2>
+          <p>Where data-bearing equipment requires additional controls, destruction and supporting documentation can be requested as part of the enquiry.</p>
+          <ul class="tick-list">
+            <li>Hard disk drives (HDDs)</li>
+            <li>Solid-state drives (SSDs)</li>
+            <li>Other storage media by arrangement</li>
+            <li>Device and serial-number recording</li>
+            <li>Certificates of destruction on request</li>
+          </ul>
+          <a class="button button-dark" href="#collection-form">Ask about data destruction</a>
+        </div>
+        <div class="panel">
+          <h3>Need proof for your records?</h3>
+          <p>A certificate of destruction may record details such as the asset identifier, device type, serial number, processing date and destruction method.</p>
+          <p><strong>Important:</strong> availability and the exact service scope will be confirmed before collection.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="areas">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">Areas covered</p>
+          <h2>Business collections across Greater Manchester and nearby areas</h2>
+          <p>Initial collection enquiries are welcomed from the following locations. Larger collections outside these areas may also be considered.</p>
+          <ul class="coverage-list" aria-label="Collection areas">
+            <li>Manchester</li><li>Salford</li><li>Trafford</li><li>Stockport</li><li>Bolton</li><li>Bury</li><li>Oldham</li><li>Rochdale</li><li>Warrington</li><li>Cheshire</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Outside the listed areas?</h3>
+          <p>Send the postcode, equipment type and approximate quantity. Larger or specialist collections may still be suitable.</p>
+          <a class="button button-primary" href="#collection-form">Check your collection</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="about">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">About RecycleIT</p>
+          <h2>Reuse first. Recycle responsibly.</h2>
+          <p>RecycleIT is being developed to give businesses, schools and organisations a straightforward way to clear unwanted IT, electrical and office equipment.</p>
+          <p>The aim is to reduce waste, promote reuse where practical and offer convenient one-off or scheduled collections.</p>
+        </div>
+        <div>
+          <h3>Launch and compliance status</h3>
+          <p>RecycleIT is currently testing demand and preparing for launch. Required registrations, insurance and service credentials will be confirmed and displayed before regulated collection services begin.</p>
+          <div class="compliance-note"><strong>No collection is confirmed through this test site.</strong> The enquiry form is intended to measure interest while the operating model and compliance requirements are finalised.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title">Got unwanted equipment taking up space?</h2>
+        <p>Tell us what you have, how often you need a collection and whether secure data destruction is required.</p>
+        <a class="button button-dark" href="#collection-form">Request a collection</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">R</span><span>RecycleIT</span></a>
+          <p>Business IT, electrical and office equipment collection enquiries.</p>
+        </div>
+        <div>
+          <h3>Services</h3>
+          <ul><li><a href="#services">Equipment collections</a></li><li><a href="#data-destruction">Data destruction</a></li><li><a href="#collection-form">Scheduled collections</a></li></ul>
+        </div>
+        <div>
+          <h3>Information</h3>
+          <ul><li><a href="#process">What happens next</a></li><li><a href="#areas">Areas covered</a></li><li><a href="#about">About</a></li><li><a href="#collection-form">Contact</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> RecycleIT. Test website. RecycleIT is not yet accepting confirmed collections through this page.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      "use strict";
+
+      const menuButton = document.querySelector(".menu-button");
+      const navigation = document.querySelector(".nav");
+      const form = document.getElementById("enquiry-form");
+      const status = document.getElementById("form-status");
+      const equipmentInputs = Array.from(document.querySelectorAll('input[name="equipment"]'));
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      menuButton.addEventListener("click", function () {
+        const isOpen = navigation.classList.toggle("open");
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        document.body.classList.toggle("menu-open", isOpen);
+      });
+
+      navigation.addEventListener("click", function (event) {
+        if (event.target.matches("a")) {
+          navigation.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+          document.body.classList.remove("menu-open");
+        }
+      });
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        status.classList.remove("show");
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        if (!equipmentInputs.some(function (input) { return input.checked; })) {
+          status.textContent = "Please select at least one equipment type.";
+          status.classList.add("show");
+          equipmentInputs[0].focus();
+          return;
+        }
+
+        status.textContent = "Demo form only: your request has not been sent. Connect the form to your chosen form service or backend before publishing it as a live enquiry form.";
+        status.classList.add("show");
+        status.focus();
+      });
+    }());
+  </script>
+</body>
+</html>
